@@ -10,6 +10,7 @@
 		7A7DD1131991518A002D186B /* underswift.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A7DD1121991518A002D186B /* underswift.h */; };
 		7A7DD1151991518A002D186B /* underswift.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD1141991518A002D186B /* underswift.m */; };
 		7A7DD11B1991518A002D186B /* libunderswift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7DD10F1991518A002D186B /* libunderswift.a */; };
+		7A7DD12B199151E1002D186B /* underswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD12A199151E1002D186B /* underswift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,8 @@
 		7A7DD1141991518A002D186B /* underswift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = underswift.m; sourceTree = "<group>"; };
 		7A7DD11A1991518A002D186B /* underswiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = underswiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7DD1201991518A002D186B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A7DD129199151E0002D186B /* underswift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "underswift-Bridging-Header.h"; sourceTree = "<group>"; };
+		7A7DD12A199151E1002D186B /* underswift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = underswift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 			children = (
 				7A7DD1121991518A002D186B /* underswift.h */,
 				7A7DD1141991518A002D186B /* underswift.m */,
+				7A7DD12A199151E1002D186B /* underswift.swift */,
+				7A7DD129199151E0002D186B /* underswift-Bridging-Header.h */,
 			);
 			path = underswift;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7DD12B199151E1002D186B /* underswift.swift in Sources */,
 				7A7DD1151991518A002D186B /* underswift.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,18 +299,25 @@
 		7A7DD1241991518A002D186B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "underswift/underswift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7A7DD1251991518A002D186B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "underswift/underswift-Bridging-Header.h";
 			};
 			name = Release;
 		};
