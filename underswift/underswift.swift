@@ -48,7 +48,7 @@ func map<T>(a:[T], callback:(T)->T)->[T]{
     return result;
 }
 
-func reduce<T>(a:T, callback:(T, T)->T, var acc:T)->T {
+func reduce<T>(a:[T], callback:(T, T)->T, var acc:T)->T {
     for i in 0..<a.count{
         acc = callback(acc, a[i])
     }
