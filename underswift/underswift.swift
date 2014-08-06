@@ -36,15 +36,17 @@ import Foundation
 - size
 */
 
-func each<T>(collection:[T], callback:(T)->Void){
+func each<T>(collection:[T], callback:(T, Int, [T])->Void){
     for i in 0..<collection.count{
-        callback(collection[i]);
+        callback(collection[i], i, collection)
     }
 }
 
-func map<T>(a:[T], callback:(T)->T)->[T]{
+func map<T>(a:[T], callback:(T, Int, [T])->T)->[T]{
     var result:[T] = [];
-    each(a, {(item:T) in result.append(callback(item));});
+    each(a, {(item:T, index:Int, collection:[T]) in
+        result.append(callback(item, index, collection));
+    });
     return result;
 }
 
@@ -56,13 +58,13 @@ func reduce<T>(a:[T], callback:(T, T)->T, var acc:T)->T {
 }
 
 
-func filter<T>(arr:[T], callback:(T)->Bool)->[T]{
+func filter<T>(arr:[T], predicate:(T)->Bool)->[T]{
     var result: [T] = []
-    each(arr, {(item:T) in
-        if (callback(item)){
-            result.append(item);
+    for i in 0..<arr.count{
+        if (predicate(arr[i])){
+            result.append(arr[i]);
         }
-        })
+    }
     return result
 }
 
