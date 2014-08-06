@@ -50,11 +50,11 @@ func map<T>(a:[T], callback:(T, Int, [T])->T)->[T]{
     return result;
 }
 
-func reduce<T>(a:[T], callback:(T, T)->T, var acc:T)->T {
-    for i in 0..<a.count{
-        acc = callback(acc, a[i])
+func reduce<T>(arr:[T], callback:(m:T, item:T, index:Int, collection:[T])->T, var memo:T)->T {
+    for i in 0..<arr.count{
+        memo = callback(m:memo, item:arr[i], index:i, collection:arr)
     }
-    return acc
+    return memo
 }
 
 
